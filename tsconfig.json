@@ -1,4 +1,6 @@
 {
+  "sourceMap": true,
+  "esModuleInterop": true,
   "compilerOptions": {
     "lib": [
       "es2015",
