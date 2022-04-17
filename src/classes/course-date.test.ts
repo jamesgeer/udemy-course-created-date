@@ -1,7 +1,5 @@
 import 'isomorphic-fetch';
-
-// @ts-ignore
-const courseDate = require('./course-date');
+import { courseDate } from "./course-date";
 
 test('should return course created date', () => {
     expect.assertions(1);
