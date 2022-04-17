@@ -1,0 +1,12 @@
+{
+  "manifest_version": 1,
+  "name": "Udemy Course Date",
+  "description": "Display the creation date of the course your are currently viewing.",
+  "version": "1.0",
+  "homepage_url": "https://github.com/jamesgeer/udemy-course-date",
+  "background": {
+    "scripts": [
+      "src/course-date.js"
+    ]
+  }
+}
