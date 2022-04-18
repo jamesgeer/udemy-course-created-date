@@ -1,11 +1,12 @@
 module.exports = {
+    verbose: true,
     preset: 'ts-jest',
     testEnvironment: 'jsdom',
     roots: ['<rootDir>/src'],
     transform: {
         '^.+\\.tsx?$': 'ts-jest',
     },
-    testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
+    testMatch: ['**/__tests__/*.ts?(x)'],
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
     moduleDirectories: ['node_modules', 'src'],
     moduleNameMapper: {
