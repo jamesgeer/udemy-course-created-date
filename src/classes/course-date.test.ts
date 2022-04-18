@@ -2,8 +2,8 @@ import 'isomorphic-fetch';
 import { courseDate } from "./course-date";
 
 test('body should contain course id', () => {
-   document.body.innerHTML =
-   '<div id="udemy" data-clp-course-id="1309202"></div>'
+    document.body = document.createElement('body');
+    document.body.setAttribute('data-clp-course-id', '1309202')
 
     expect(new courseDate().getCourseId()).toEqual('1309202');
 });
