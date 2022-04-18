@@ -14,6 +14,7 @@ class courseDate {
     }
 
     public getCourseId(): string {
+        console.log(document.body);
         return document.body.getAttribute('data-clp-course-id');
     }
 
