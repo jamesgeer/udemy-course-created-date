@@ -19,11 +19,17 @@ class courseDate {
 
     public async getCreatedDate(courseId: string): Promise<string> {
         const url = 'https://www.udemy.com/api-2.0/courses/' + courseId + '/?fields[course]=created';
-        const response = await fetch(url);
 
-        if(response.ok) {
+        try {
+            const response = await fetch(url);
             const json = await response.json() as UdemyJSON;
-            return json.created;
+
+            if(json.created) {
+                return json.created;
+            }
+
+        } catch (e) {
+            return ""
         }
 
         return "";
