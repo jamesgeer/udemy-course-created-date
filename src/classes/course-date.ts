@@ -35,6 +35,17 @@ class courseDate {
         return "";
     }
 
+    public convertUTCDateTime(utcDateTime: string): string {
+        if(!utcDateTime.includes('Z')) {
+            return "";
+        }
+
+        const date = new Date(utcDateTime);
+        const month = date.toLocaleString('default', { month: 'short' });
+
+        return date.getDate() + " " + month + " " + date.getFullYear();
+    }
+
 }
 
 export { courseDate };

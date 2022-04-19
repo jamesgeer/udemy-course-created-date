@@ -39,3 +39,8 @@ test('mock api should return course not found', () => {
     return expect(new courseDate().getCreatedDate("4000050505"))
         .resolves.toEqual("");
 });
+
+test('utc datetime should be human readable', () => {
+    expect(new courseDate().convertUTCDateTime('2017-07-31T21:29:36Z'))
+        .toEqual('31 Jul 2017');
+});
