@@ -66,6 +66,13 @@ class courseDate {
         `
     }
 
+    public appendCreatedDateHTML(createdDateHTML: string): void {
+        const target = document.querySelector('.clp-lead__element-meta');
+        const node = new DOMParser().parseFromString(createdDateHTML, 'text/html');
+
+        target.appendChild(node);
+    }
+
 }
 
 export { courseDate };
