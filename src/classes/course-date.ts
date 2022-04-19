@@ -3,7 +3,7 @@ interface UdemyJSON {
     created: string;
 }
 
-class courseDate {
+class CourseDate {
 
     constructor() {
         //this.init()
@@ -68,11 +68,15 @@ class courseDate {
 
     public appendCreatedDateHTML(createdDateHTML: string): void {
         const target = document.querySelector('.clp-lead__element-meta');
-        const node = new DOMParser().parseFromString(createdDateHTML, 'text/html');
+        target.insertAdjacentHTML('afterbegin', createdDateHTML);
+        //const node = new DOMParser().parseFromString(createdDateHTML, 'text/html');
 
-        target.appendChild(node);
+        //console.log(node)
+
+        //target.prepend(node);
+
     }
 
 }
 
-export { courseDate };
+export { CourseDate };
