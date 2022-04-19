@@ -44,3 +44,19 @@ test('utc datetime should convert to mm/yyyy', () => {
     expect(new courseDate().formatUTCDateTime('2017-07-31T21:29:36Z'))
         .toEqual('07/2017');
 });
+
+test('created date HTML should match', () => {
+    const expectedHTML = `
+        <div class="clp-lead__element-item">
+            <div class="last-update-date" data-purpose="last-update-date">
+                <svg aria-hidden="true" focusable="false" class="udlite-icon udlite-icon-xsmall udlite-icon-color-neutral last-update-date__icon">
+                    <use xlink:href="#icon-new"></use>
+                </svg>
+                <span>Created 07/2017</span>
+            </div>
+        </div>
+        `
+
+    expect(new courseDate().getCreatedDateHTML('07/2017'))
+        .toEqual(expectedHTML);
+});
