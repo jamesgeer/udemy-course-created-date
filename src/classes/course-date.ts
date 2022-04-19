@@ -35,15 +35,22 @@ class courseDate {
         return "";
     }
 
-    public convertUTCDateTime(utcDateTime: string): string {
+    public formatUTCDateTime(utcDateTime: string): string {
         if(!utcDateTime.includes('Z')) {
             return "";
         }
 
+        let formattedDate = '';
         const date = new Date(utcDateTime);
-        const month = date.toLocaleString('default', { month: 'short' });
+        const month = date.getMonth() + 1;
 
-        return date.getDate() + " " + month + " " + date.getFullYear();
+        if(month < 10) {
+            formattedDate += '0'
+        }
+
+        formattedDate += month + '/' + date.getFullYear();
+
+        return formattedDate;
     }
 
 }

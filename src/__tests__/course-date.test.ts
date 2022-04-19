@@ -40,7 +40,7 @@ test('mock api should return course not found', () => {
         .resolves.toEqual("");
 });
 
-test('utc datetime should be human readable', () => {
-    expect(new courseDate().convertUTCDateTime('2017-07-31T21:29:36Z'))
-        .toEqual('31 Jul 2017');
+test('utc datetime should convert to mm/yyyy', () => {
+    expect(new courseDate().formatUTCDateTime('2017-07-31T21:29:36Z'))
+        .toEqual('07/2017');
 });
