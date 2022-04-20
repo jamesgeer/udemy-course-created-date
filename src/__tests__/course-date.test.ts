@@ -67,7 +67,7 @@ test("created date HTML should match", () => {
 	);
 });
 
-test("appended created date HTML appears in the correct location", () => {
+test("created date HTML appears in the correct location", () => {
 	document.body.innerHTML += `<div class="clp-lead__element-meta">
             <div class="clp-lead__element-item">Last updated 04/2022</div>
             <div class="clp-lead__element-item">English</div>
@@ -76,7 +76,7 @@ test("appended created date HTML appears in the correct location", () => {
 
 	const courseDate = new CourseDate();
 	const createdDateHTML = courseDate.getCreatedDateHTML("07/2017");
-	courseDate.appendCreatedDateHTML(createdDateHTML);
+	courseDate.insertCreatedDateHTML(createdDateHTML);
 
 	const expectedHTML = `<div class="clp-lead__element-meta">
             <div class="clp-lead__element-item">

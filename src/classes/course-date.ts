@@ -67,14 +67,9 @@ class CourseDate {
         `;
 	}
 
-	public appendCreatedDateHTML(createdDateHTML: string): void {
+	public insertCreatedDateHTML(createdDateHTML: string): void {
 		const target = document.querySelector(".clp-lead__element-meta");
 		target.insertAdjacentHTML("afterbegin", createdDateHTML);
-		//const node = new DOMParser().parseFromString(createdDateHTML, 'text/html');
-
-		//console.log(node)
-
-		//target.prepend(node);
 	}
 }
 
