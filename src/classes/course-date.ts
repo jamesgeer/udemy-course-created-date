@@ -6,8 +6,15 @@ interface UdemyJSON {
 class CourseDate {
 	constructor() {}
 
-	private init() {
+	public async run(): Promise<void> {
+		// get and format the data
 		const courseId = this.getCourseId();
+		const createdDate = await this.getCreatedDate(courseId);
+		const formattedDate = this.formatUTCDateTime(createdDate);
+		const createdDateHTML = this.getCreatedDateHTML(formattedDate);
+
+		// insert curated data
+		this.insertCreatedDateHTML(createdDateHTML);
 	}
 
 	public getCourseId(): string {
