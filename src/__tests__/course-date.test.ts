@@ -99,6 +99,4 @@ test("created date HTML appears in the correct location", () => {
 
 	const formatStmt = (str: string) => format(str, { parser: "html" });
 	expect(formatStmt(selectorResult)).toBe(formatStmt(expectedHTML));
-
-	// expect(selectorResult).toEqual(expectedHTML);
 });

@@ -4,9 +4,7 @@ interface UdemyJSON {
 }
 
 class CourseDate {
-	constructor() {
-		//this.init()
-	}
+	constructor() {}
 
 	private init() {
 		const courseId = this.getCourseId();
@@ -30,7 +28,7 @@ class CourseDate {
 				return json.created;
 			}
 		} catch (e) {
-			return "";
+			throw new Error("Fetch failed to retrieve course created date.");
 		}
 
 		return "";
@@ -38,7 +36,7 @@ class CourseDate {
 
 	public formatUTCDateTime(utcDateTime: string): string {
 		if (!utcDateTime.includes("Z")) {
-			return "";
+			throw new Error("Unexpected UTC date received.");
 		}
 
 		let formattedDate = "";
