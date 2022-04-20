@@ -3,7 +3,7 @@ interface UdemyJSON {
 	created: string;
 }
 
-class CourseDate {
+export class CourseCreatedDate {
 	constructor() {}
 
 	public async run(): Promise<void> {
@@ -77,5 +77,3 @@ class CourseDate {
 		target.insertAdjacentHTML("afterbegin", createdDateHTML);
 	}
 }
-
-export { CourseDate };
