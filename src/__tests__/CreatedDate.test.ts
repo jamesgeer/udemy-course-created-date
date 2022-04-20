@@ -1,19 +1,19 @@
 import "isomorphic-fetch";
-import { CourseCreatedDate } from "../classes/CourseCreatedDate";
+import { CreatedDate } from "../classes/CreatedDate";
 import { format } from "prettier";
 
 test("body should contain course id", () => {
 	document.body = document.createElement("body");
 	document.body.setAttribute("data-clp-course-id", "1309202");
 
-	expect(new CourseCreatedDate().getCourseId()).toEqual("1309202");
+	expect(new CreatedDate().getCourseId()).toEqual("1309202");
 });
 
 test("real api should return course created date", () => {
 	expect.assertions(1);
-	return expect(
-		new CourseCreatedDate().getCreatedDate("1309202")
-	).resolves.toEqual("2017-07-31T21:29:36Z");
+	return expect(new CreatedDate().getCreatedDate("1309202")).resolves.toEqual(
+		"2017-07-31T21:29:36Z"
+	);
 });
 
 test("mock api should return course created date", () => {
@@ -25,9 +25,9 @@ test("mock api should return course created date", () => {
 		})
 	) as jest.Mock;
 
-	return expect(
-		new CourseCreatedDate().getCreatedDate("1309202")
-	).resolves.toEqual("2017-07-31T21:29:36Z");
+	return expect(new CreatedDate().getCreatedDate("1309202")).resolves.toEqual(
+		"2017-07-31T21:29:36Z"
+	);
 });
 
 test("mock api should return course not found", () => {
@@ -40,14 +40,14 @@ test("mock api should return course not found", () => {
 	) as jest.Mock;
 
 	return expect(
-		new CourseCreatedDate().getCreatedDate("4000050505")
+		new CreatedDate().getCreatedDate("4000050505")
 	).resolves.toEqual("");
 });
 
 test("utc datetime should convert to mm/yyyy", () => {
-	expect(
-		new CourseCreatedDate().formatUTCDateTime("2017-07-31T21:29:36Z")
-	).toEqual("07/2017");
+	expect(new CreatedDate().formatUTCDateTime("2017-07-31T21:29:36Z")).toEqual(
+		"07/2017"
+	);
 });
 
 test("created date HTML should match", () => {
@@ -62,7 +62,7 @@ test("created date HTML should match", () => {
         </div>
     `;
 
-	expect(new CourseCreatedDate().getCreatedDateHTML("07/2017")).toEqual(
+	expect(new CreatedDate().getCreatedDateHTML("07/2017")).toEqual(
 		expectedHTML
 	);
 });
@@ -74,7 +74,7 @@ test("created date HTML appears in the correct location", () => {
             <div class="clp-lead__element-item">English [Auto]</div>
         </div>`;
 
-	const courseDate = new CourseCreatedDate();
+	const courseDate = new CreatedDate();
 	const createdDateHTML = courseDate.getCreatedDateHTML("07/2017");
 	courseDate.insertCreatedDateHTML(createdDateHTML);
 

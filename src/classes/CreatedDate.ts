@@ -1,9 +1,9 @@
-interface UdemyJSON {
+interface Created {
 	id: number;
 	created: string;
 }
 
-export class CourseCreatedDate {
+export class CreatedDate {
 	constructor() {}
 
 	public async run(): Promise<void> {
@@ -29,7 +29,7 @@ export class CourseCreatedDate {
 
 		try {
 			const response = await fetch(url);
-			const json = (await response.json()) as UdemyJSON;
+			const json = (await response.json()) as Created;
 
 			if (json.created) {
 				return json.created;
