@@ -4,9 +4,10 @@
   "description": "Display the creation date of the course your are currently viewing.",
   "version": "1.0",
   "homepage_url": "https://github.com/jamesgeer/udemy-course-date",
+  "permissions": ["activeTab", "<all_urls>", "webRequest", "tabs"],
   "background": {
     "scripts": [
-      "src/index.ts"
+      "./src/index.ts"
     ]
   }
 }
