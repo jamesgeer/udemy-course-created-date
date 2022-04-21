@@ -1,8 +1,7 @@
 {
   "name": "udemy-course-date",
   "version": "1.0.0",
-  "description": "",
-  "main": "src/course-date.js",
+  "description": "Display the creation date of the course your are currently viewing.",
   "scripts": {
     "test": "jest"
   },
@@ -11,15 +10,17 @@
     "url": "git+https://github.com/jamesgeer/udemy-course-date.git"
   },
   "author": "James Geer",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jamesgeer/udemy-course-date/issues"
   },
   "homepage": "https://github.com/jamesgeer/udemy-course-date#readme",
   "devDependencies": {
+    "@parcel/config-webextension": "^2.4.1",
     "@types/jest": "^27.4.1",
     "isomorphic-fetch": "^3.0.0",
     "jest": "^27.5.1",
+    "parcel": "^2.4.1",
     "prettier": "2.6.2",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",
