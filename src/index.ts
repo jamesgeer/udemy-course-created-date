@@ -1,12 +1,14 @@
 import { CreatedDate } from "./classes/CreatedDate";
+import browser from "webextension-polyfill";
 
-declare const browser: any;
+//declare const browser: any;
+//const browser = require("webextension-polyfill");
 
 const coursePage = () => {
 	console.log("Hello there");
 
 	// compile please
-	console.log("tab: " + browser.tabs.query({ currentWindow: true }));
+	//chrome.tabs.query();
 
 	if (window.location.host === "www.udemy.com") {
 		console.log("Looks like we're on Udemy");

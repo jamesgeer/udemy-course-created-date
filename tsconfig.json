@@ -2,8 +2,8 @@
 	"exclude": ["node_modules"],
 	"include": ["src/**/*"],
 	"sourceMap": true,
-	"esModuleInterop": true,
 	"compilerOptions": {
+		"esModuleInterop": true,
 		"lib": [
 			"es2015",
 			"dom"
