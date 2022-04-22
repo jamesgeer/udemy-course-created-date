@@ -85,3 +85,5 @@ export class CreatedDate {
 		target.insertAdjacentHTML("afterbegin", createdDateHTML);
 	}
 }
+
+new CreatedDate().run().then();
