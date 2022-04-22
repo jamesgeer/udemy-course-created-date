@@ -4,8 +4,7 @@
   "description": "Display the creation date of the course your are currently viewing.",
   "scripts": {
     "test": "jest",
-    "build": "npx parcel build manifest.json --config @parcel/config-webextension",
-    "watch": "npx parcel watch manifest.json --config @parcel/config-webextension",
+    "build": "npx webpack",
     "run-web-ext": "cd dist/ && web-ext run --firefox=firefoxdeveloperedition"
   },
   "context": "browser",
@@ -20,12 +19,10 @@
   },
   "homepage": "https://github.com/jamesgeer/udemy-course-date#readme",
   "devDependencies": {
-    "@parcel/config-webextension": "^2.4.1",
     "@types/jest": "^27.4.1",
     "@types/webextension-polyfill": "^0.8.3",
     "isomorphic-fetch": "^3.0.0",
     "jest": "^27.5.1",
-    "parcel": "^2.4.1",
     "prettier": "2.6.2",
     "ts-jest": "^27.1.4",
     "ts-loader": "^9.2.8",

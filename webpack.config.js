@@ -2,7 +2,10 @@ const path = require("path");
 
 module.exports = {
 	mode: "development",
-	entry: "./src/index.ts",
+	entry: {
+		index: "./src/index.ts",
+		created_date: "./src/classes/CreatedDate.ts",
+	},
 	devtool: "inline-source-map",
 	module: {
 		rules: [
@@ -17,7 +20,7 @@ module.exports = {
 		extensions: [".tsx", ".ts", ".js"],
 	},
 	output: {
-		filename: "bundle.js",
-		path: path.resolve(__dirname, "dist"),
+		path: path.join(__dirname, "./dist"),
+		filename: "[name].js",
 	},
 };
