@@ -3,6 +3,11 @@
 	"include": ["src/**/*"],
 	"sourceMap": true,
 	"compilerOptions": {
+		"outDir": "./dist/",
+		"noImplicitAny": true,
+		"module": "es6",
+		"moduleResolution": "node",
+		"allowJs": true,
 		"esModuleInterop": true,
 		"lib": [
 			"es2015",

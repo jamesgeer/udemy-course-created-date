@@ -1,5 +1,7 @@
-import browser from "webextension-polyfill";
+import browser, { Tabs } from "webextension-polyfill";
 import { CreatedDate } from "./classes/CreatedDate";
+import Tab = Tabs.Tab;
+import OnUpdatedChangeInfoType = Tabs.OnUpdatedChangeInfoType;
 
 console.log("test");
 
@@ -14,7 +16,11 @@ console.log("test");
 // 	};
 // });
 
-function handleUpdated(tabId, changeInfo, tabInfo) {
+function handleUpdated(
+	tabId: number,
+	changeInfo: OnUpdatedChangeInfoType,
+	tab: Tab
+) {
 	if (changeInfo.url) {
 		console.log("Tab: " + tabId + " URL changed to " + changeInfo.url);
 
