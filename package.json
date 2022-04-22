@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Display the creation date of the course your are currently viewing.",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+  	"build": "npx parcel build manifest.json --config @parcel/config-webextension",
+  	"watch": "npx parcel watch manifest.json --config @parcel/config-webextension"
   },
   "repository": {
     "type": "git",

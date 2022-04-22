@@ -4,25 +4,29 @@ interface Created {
 }
 
 export class CreatedDate {
-	constructor() {}
+	constructor() {
+		console.log("class initialised");
+	}
 
 	public async run(): Promise<void> {
 		// get and format the data
 		const courseId = this.getCourseId();
 		console.log("courseId: " + courseId);
 
-		const createdDate = await this.getCreatedDate(courseId);
-		console.log("createdDate: " + createdDate);
+		if (courseId !== null) {
+			const createdDate = await this.getCreatedDate(courseId);
+			console.log("createdDate: " + createdDate);
 
-		const formattedDate = this.formatUTCDateTime(createdDate);
-		console.log("formattedDate: " + formattedDate);
+			const formattedDate = this.formatUTCDateTime(createdDate);
+			console.log("formattedDate: " + formattedDate);
 
-		const createdDateHTML = this.getCreatedDateHTML(formattedDate);
-		console.log("createdDateHTML:" + createdDateHTML);
+			const createdDateHTML = this.getCreatedDateHTML(formattedDate);
+			console.log("createdDateHTML:" + createdDateHTML);
 
-		// insert curated data
-		this.insertCreatedDateHTML(createdDateHTML);
-		console.log("data inserted boss");
+			// insert curated data
+			this.insertCreatedDateHTML(createdDateHTML);
+			console.log("data inserted boss");
+		}
 	}
 
 	public getCourseId(): string {
@@ -85,5 +89,3 @@ export class CreatedDate {
 		target.insertAdjacentHTML("afterbegin", createdDateHTML);
 	}
 }
-
-new CreatedDate().run().then();

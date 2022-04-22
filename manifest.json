@@ -5,16 +5,12 @@
 	"version": "1.0",
 	"homepage_url": "https://github.com/jamesgeer/udemy-course-date",
 	"permissions": [
-		"tabs", "activeTab"
+		"tabs", "activeTab", "webRequest", "*://*.udemy.com/*"
 	],
 	"content_scripts": [
 		{
-			"matches": [
-				"*://*.udemy.com/*"
-			],
-			"js": [
-				"./src/index.ts"
-			]
+			"matches": ["*://*.udemy.com/*"],
+			"js": ["./src/index.ts"]
 		}
 	]
 }
