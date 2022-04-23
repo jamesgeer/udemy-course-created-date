@@ -1,5 +1,4 @@
 import browser, { Tabs } from "webextension-polyfill";
-import { CreatedDate } from "./classes/CreatedDate";
 import Tab = Tabs.Tab;
 import OnUpdatedChangeInfoType = Tabs.OnUpdatedChangeInfoType;
 
@@ -24,12 +23,17 @@ function handleUpdated(
 	if (changeInfo.url) {
 		console.log("Tab: " + tabId + " URL changed to " + changeInfo.url);
 
+		const executing = browser.tabs.executeScript({
+			file: "created_date.js",
+		});
+		executing.then();
+
 		// document.onreadystatechange = function () {
 		// 	console.log(document.readyState);
 		// 	if (document.readyState === "complete") {
 		// 		console.log(document.readyState);
-		new CreatedDate().run().then();
-		console.log("hello there");
+		// new CreatedDate().run().then();
+		// console.log("hello there");
 		// }
 		// };
 	}

@@ -16,11 +16,12 @@ module.exports = {
 			},
 		],
 	},
+	plugins: [],
 	resolve: {
 		extensions: [".tsx", ".ts", ".js"],
 	},
 	output: {
-		path: path.join(__dirname, "./dist"),
+		path: path.join(__dirname, "dist"),
 		filename: "[name].js",
 	},
 };
