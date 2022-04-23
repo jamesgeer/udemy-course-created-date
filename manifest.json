@@ -5,7 +5,7 @@
 	"version": "1.0",
 	"homepage_url": "https://github.com/jamesgeer/udemy-course-date",
 	"permissions": [
-		"tabs", "activeTab", "webRequest", "<all_urls>"
+		"tabs", "activeTab", "webRequest", "*://*.udemy.com/*"
 	],
 	"background": {
 		"scripts": ["./src/index.ts"]

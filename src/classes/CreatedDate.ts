@@ -4,29 +4,32 @@ interface Created {
 }
 
 export class CreatedDate {
-	constructor() {
-		console.log("class initialised");
-	}
+	constructor() {}
 
-	public async run(): Promise<void> {
+	public async run(): Promise<boolean> {
+		// guard if created date already exists
+		if (this.createdDateExists()) {
+			return false;
+		}
+
 		// get and format the data
 		const courseId = this.getCourseId();
-		console.log("courseId: " + courseId);
-
-		if (courseId !== null) {
-			const createdDate = await this.getCreatedDate(courseId);
-			console.log("createdDate: " + createdDate);
-
-			const formattedDate = this.formatUTCDateTime(createdDate);
-			console.log("formattedDate: " + formattedDate);
-
-			const createdDateHTML = this.getCreatedDateHTML(formattedDate);
-			console.log("createdDateHTML:" + createdDateHTML);
-
-			// insert curated data
-			this.insertCreatedDateHTML(createdDateHTML);
-			console.log("data inserted boss");
+		if (courseId == null) {
+			return false;
 		}
+
+		const createdDate = await this.getCreatedDate(courseId);
+		const formattedDate = this.formatUTCDateTime(createdDate);
+		const createdDateHTML = this.getCreatedDateHTML(formattedDate);
+
+		// insert curated data
+		this.insertCreatedDateHTML(createdDateHTML);
+
+		return true;
+	}
+
+	public createdDateExists(): boolean {
+		return document.getElementById("course-created-date") != null;
 	}
 
 	public getCourseId(): string {
@@ -73,7 +76,7 @@ export class CreatedDate {
 
 	public getCreatedDateHTML(createdDate: string): string {
 		return `
-        <div class="clp-lead__element-item">
+        <div id="course-created-date" class="clp-lead__element-item">
             <div class="last-update-date" data-purpose="last-update-date">
                 <svg aria-hidden="true" focusable="false" class="udlite-icon udlite-icon-xsmall udlite-icon-color-neutral last-update-date__icon">
                     <use xlink:href="#icon-new"></use>
@@ -89,3 +92,5 @@ export class CreatedDate {
 		target.insertAdjacentHTML("afterbegin", createdDateHTML);
 	}
 }
+
+new CreatedDate().run().then();
