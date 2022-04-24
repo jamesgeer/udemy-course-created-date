@@ -3,7 +3,7 @@ interface Created {
 	created: string;
 }
 
-export class CreatedDate {
+export class Created_date {
 	constructor() {}
 
 	public async run(): Promise<boolean> {
@@ -93,4 +93,4 @@ export class CreatedDate {
 	}
 }
 
-new CreatedDate().run().then();
+new Created_date().run().then();

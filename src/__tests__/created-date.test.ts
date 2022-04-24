@@ -1,5 +1,5 @@
 import "isomorphic-fetch";
-import { CreatedDate } from "../content/created-date";
+import { Created_date } from "../content/created_date";
 import { format } from "prettier";
 
 const formatStmt = (str: string) => format(str, { parser: "html" });
@@ -8,12 +8,12 @@ test("body should contain course id", () => {
 	document.body = document.createElement("body");
 	document.body.setAttribute("data-clp-course-id", "1309202");
 
-	expect(new CreatedDate().getCourseId()).toEqual("1309202");
+	expect(new Created_date().getCourseId()).toEqual("1309202");
 });
 
 test("real api should return course created date", () => {
 	expect.assertions(1);
-	return expect(new CreatedDate().getCreatedDate("1309202")).resolves.toEqual(
+	return expect(new Created_date().getCreatedDate("1309202")).resolves.toEqual(
 		"2017-07-31T21:29:36Z"
 	);
 });
@@ -27,7 +27,7 @@ test("mock api should return course created date", () => {
 		})
 	) as jest.Mock;
 
-	return expect(new CreatedDate().getCreatedDate("1309202")).resolves.toEqual(
+	return expect(new Created_date().getCreatedDate("1309202")).resolves.toEqual(
 		"2017-07-31T21:29:36Z"
 	);
 });
@@ -42,12 +42,12 @@ test("mock api should return course not found", () => {
 	) as jest.Mock;
 
 	return expect(
-		new CreatedDate().getCreatedDate("4000050505")
+		new Created_date().getCreatedDate("4000050505")
 	).resolves.toEqual("");
 });
 
 test("utc datetime should convert to mm/yyyy", () => {
-	expect(new CreatedDate().formatUTCDateTime("2017-07-31T21:29:36Z")).toEqual(
+	expect(new Created_date().formatUTCDateTime("2017-07-31T21:29:36Z")).toEqual(
 		"07/2017"
 	);
 });
@@ -63,7 +63,7 @@ test("created date HTML should match", () => {
             </div>
         </div>`;
 
-	const result = new CreatedDate().getCreatedDateHTML("07/2017");
+	const result = new Created_date().getCreatedDateHTML("07/2017");
 
 	expect(formatStmt(result)).toBe(formatStmt(expectedHTML));
 });
@@ -75,7 +75,7 @@ test("created date HTML appears in the correct location", () => {
             <div class="clp-lead__element-item">English [Auto]</div>
         </div>`;
 
-	const courseDate = new CreatedDate();
+	const courseDate = new Created_date();
 	const createdDateHTML = courseDate.getCreatedDateHTML("07/2017");
 	courseDate.insertCreatedDateHTML(createdDateHTML);
 

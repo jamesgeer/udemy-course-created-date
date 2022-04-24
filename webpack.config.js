@@ -1,10 +1,11 @@
 const path = require("path");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
 	mode: "development",
 	entry: {
 		index: "./src/background/index.ts",
-		created_date: "./src/content/created-date.ts",
+		created_date: "./src/content/created_date.ts",
 	},
 	devtool: "inline-source-map",
 	module: {
@@ -16,7 +17,14 @@ module.exports = {
 			},
 		],
 	},
-	plugins: [],
+	plugins: [
+		new CopyWebpackPlugin({
+			patterns: [
+				{ from: 'node_modules/webextension-polyfill/dist/browser-polyfill.js' },
+				{ from: "./src/manifest.json" },
+			],
+		}),
+	],
 	resolve: {
 		extensions: [".tsx", ".ts", ".js"],
 	},

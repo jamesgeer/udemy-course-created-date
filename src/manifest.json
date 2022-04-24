@@ -8,6 +8,9 @@
 		"tabs", "activeTab", "webRequest", "*://*.udemy.com/*"
 	],
 	"background": {
-		"scripts": ["./src/index.ts"]
+		"scripts": [
+			"./browser-polyfill.js",
+			"./index.js"
+		]
 	}
 }
