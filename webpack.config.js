@@ -20,8 +20,8 @@ module.exports = {
 	plugins: [
 		new CopyWebpackPlugin({
 			patterns: [
-				{ from: 'node_modules/webextension-polyfill/dist/browser-polyfill.js' },
 				{ from: "./src/manifest.json" },
+				{ from: 'node_modules/webextension-polyfill/dist/browser-polyfill.js' },
 			],
 		}),
 	],
