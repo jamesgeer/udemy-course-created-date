@@ -4,7 +4,7 @@ module.exports = {
 	mode: "development",
 	entry: {
 		index: "./src/index.ts",
-		created_date: "./src/classes/CreatedDate.ts",
+		created_date: "./src/content-scripts/created-date.ts",
 	},
 	devtool: "inline-source-map",
 	module: {
