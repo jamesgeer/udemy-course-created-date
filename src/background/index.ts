@@ -9,7 +9,7 @@ function handleUpdated(
 ) {
 	if (changeInfo.url) {
 		const executing = browser.tabs.executeScript({
-			file: "./content-scripts/created-date.js",
+			file: "./content/created-date.js",
 		});
 
 		executing.then();

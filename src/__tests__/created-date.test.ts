@@ -1,5 +1,5 @@
 import "isomorphic-fetch";
-import { CreatedDate } from "../content-scripts/created-date";
+import { CreatedDate } from "../content/created-date";
 import { format } from "prettier";
 
 const formatStmt = (str: string) => format(str, { parser: "html" });

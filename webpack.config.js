@@ -3,8 +3,8 @@ const path = require("path");
 module.exports = {
 	mode: "development",
 	entry: {
-		index: "./src/index.ts",
-		created_date: "./src/content-scripts/created-date.ts",
+		index: "./src/background/index.ts",
+		created_date: "./src/content/created-date.ts",
 	},
 	devtool: "inline-source-map",
 	module: {
