@@ -2,6 +2,8 @@ import "isomorphic-fetch";
 import { CreatedDate } from "../classes/CreatedDate";
 import { format } from "prettier";
 
+const formatStmt = (str: string) => format(str, { parser: "html" });
+
 test("body should contain course id", () => {
 	document.body = document.createElement("body");
 	document.body.setAttribute("data-clp-course-id", "1309202");
@@ -52,19 +54,18 @@ test("utc datetime should convert to mm/yyyy", () => {
 
 test("created date HTML should match", () => {
 	const expectedHTML = `
-        <div class="clp-lead__element-item">
+        <div id="course-created-date" class="clp-lead__element-item">
             <div class="last-update-date" data-purpose="last-update-date">
                 <svg aria-hidden="true" focusable="false" class="udlite-icon udlite-icon-xsmall udlite-icon-color-neutral last-update-date__icon">
                     <use xlink:href="#icon-new"></use>
                 </svg>
                 <span>Created 07/2017</span>
             </div>
-        </div>
-    `;
+        </div>`;
 
-	expect(new CreatedDate().getCreatedDateHTML("07/2017")).toEqual(
-		expectedHTML
-	);
+	const result = new CreatedDate().getCreatedDateHTML("07/2017");
+
+	expect(formatStmt(result)).toBe(formatStmt(expectedHTML));
 });
 
 test("created date HTML appears in the correct location", () => {
@@ -79,7 +80,7 @@ test("created date HTML appears in the correct location", () => {
 	courseDate.insertCreatedDateHTML(createdDateHTML);
 
 	const expectedHTML = `<div class="clp-lead__element-meta">
-            <div class="clp-lead__element-item">
+            <div id="course-created-date" class="clp-lead__element-item">
                 <div class="last-update-date" data-purpose="last-update-date">
                     <svg aria-hidden="true" focusable="false" class="udlite-icon udlite-icon-xsmall udlite-icon-color-neutral last-update-date__icon">
                         <use xlink:href="#icon-new"></use>
@@ -97,6 +98,5 @@ test("created date HTML appears in the correct location", () => {
 		".clp-lead__element-meta"
 	).outerHTML;
 
-	const formatStmt = (str: string) => format(str, { parser: "html" });
 	expect(formatStmt(selectorResult)).toBe(formatStmt(expectedHTML));
 });
